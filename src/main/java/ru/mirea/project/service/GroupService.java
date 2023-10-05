@@ -99,12 +99,12 @@ public class GroupService {
         subjectRepository.save(subject);
     }
 
-//    public List<Student> getAllStudentsByGroup(long groupId){
-//        return groupRepository.getAllStudentsByGroup(groupId);
-//    }
-//
-//    public List<Subject> getAllSubjectsByGroup(long groupId){
-//        return groupRepository.getAllSubjectsByGroup(groupId);
-//    }
+    public List<Student> getAllStudentsByGroup(long groupId){
+        return groupRepository.getAllStudentsByGroup(groupId);
+    }
+
+    public List<Subject> getAllSubjectsByGroup(long groupId){
+        return groupRepository.getAllSubjectsByGroup(groupId);
+    }
 
 }

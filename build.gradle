@@ -1,7 +1,7 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.5.5'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'org.springframework.boot' version '3.1.4'
+    id 'io.spring.dependency-management' version '1.1.3'
 }
 
 group = 'ru.mirea'
@@ -21,46 +21,24 @@ repositories {
     mavenCentral()
 }
 
-//dependencies {
-//    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-//    implementation 'org.springframework:spring-core'
-//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-//    implementation 'org.hibernate:hibernate-core'
-//    implementation 'org.springframework.boot:spring-boot-starter-web'
-//    implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
-//    implementation 'javax.persistence:javax.persistence-api:2.2'
-//    compileOnly 'org.projectlombok:lombok'
-//    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-//    runtimeOnly 'org.postgresql:postgresql'
-//    annotationProcessor 'org.projectlombok:lombok'
-//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-//}
-
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-    implementation("org.springframework.boot:spring-boot-starter-web")
-    implementation ("jakarta.persistence:jakarta.persistence-api:3.1.0")
-    implementation ("javax.persistence:javax.persistence-api:2.2")
-    compileOnly("org.projectlombok:lombok")
-    runtimeOnly("org.postgresql:postgresql")
-    annotationProcessor("org.projectlombok:lombok")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-//tasks.named('test') {
-//    useJUnitPlatform()
-//}
-
-tasks.bootJar {
-    archiveFileName.set("app.jar")
+tasks.named('test') {
+    useJUnitPlatform()
 }
 
-
-jar {
-    manifest {
-        attributes 'Main-Class': 'ru.mirea.project.StudentTasksApplication'
-    }
+bootJar {
+    archiveFileName = 'app.jar'
 }
 
 task copyJar(type: Copy) {
