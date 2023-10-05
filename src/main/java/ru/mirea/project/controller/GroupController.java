@@ -52,17 +52,17 @@ public class GroupController {
         return ResponseEntity.noContent().build();
     }
 
-//    @GetMapping("/{groupId}/students")
-//    public ResponseEntity<List<Student>> getAllStudentsByGroup(@PathVariable long groupId) {
-//        List<Student> students = groupService.getAllStudentsByGroup(groupId);
-//        return ResponseEntity.ok(students);
-//    }
-//
-//    @GetMapping("/{groupId}/subjects")
-//    public ResponseEntity<List<Subject>> getAllSubjectsByGroup(@PathVariable long groupId) {
-//        List<Subject> subjects = groupService.getAllSubjectsByGroup(groupId);
-//        return ResponseEntity.ok(subjects);
-//    }
+    @GetMapping("/{groupId}/students")
+    public ResponseEntity<List<Student>> getAllStudentsByGroup(@PathVariable long groupId) {
+        List<Student> students = groupService.getAllStudentsByGroup(groupId);
+        return ResponseEntity.ok(students);
+    }
+
+    @GetMapping("/{groupId}/subjects")
+    public ResponseEntity<List<Subject>> getAllSubjectsByGroup(@PathVariable long groupId) {
+        List<Subject> subjects = groupService.getAllSubjectsByGroup(groupId);
+        return ResponseEntity.ok(subjects);
+    }
 
     @PostMapping("/{groupId}/addStudent/{studentId}")
     public ResponseEntity<Void> addStudentToGroup(@PathVariable long groupId, @PathVariable long studentId) {
